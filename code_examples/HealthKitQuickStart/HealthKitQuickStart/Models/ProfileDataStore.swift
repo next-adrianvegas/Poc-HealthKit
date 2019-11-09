@@ -31,7 +31,7 @@ import HealthKit
 class ProfileDataStore {
   
   class func getAgeSexAndBloodType() throws -> (age: Int,
-    bloodType: HKBloodType) {
+    bloodType: HKBloodType, biologicalSex: HKBiologicalSex) {
       
       let healthKitStore = HKHealthStore()
       
@@ -41,6 +41,8 @@ class ProfileDataStore {
         let birthdayComponents =  try healthKitStore.dateOfBirthComponents()
         let bloodType =           try healthKitStore.bloodType()
         //1. Get the sex type
+        let biologicalSex = try healthKitStore.biologicalSex()
+        
         
         //Use Calendar to calculate age.
         let today = Date()
@@ -52,9 +54,9 @@ class ProfileDataStore {
         //Unwrap the wrappers to get the underlying enum values.
         let unwrappedBloodType = bloodType.bloodType
         //2. Unwrap the type
-        
+        let unwrappedBiologicalSex = biologicalSex.biologicalSex
         //3. Add the sex to the tuple to return
-        return (ageComponents.year!, unwrappedBloodType)
+        return (ageComponents.year!, unwrappedBloodType, unwrappedBiologicalSex)
       }
   }
   
