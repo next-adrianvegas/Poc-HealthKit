@@ -63,11 +63,14 @@ class ProfileDataStore {
   class func saveSample(value:Double, unit:HKUnit, type: HKQuantityType, date:Date)
   {
     //1. Make a HKQuantity
-
+    let quantity = HKQuantity(unit: unit, doubleValue: value)
     //2. Make a HKQuantitySample
-
+    let sample = HKQuantitySample(type: type, quantity: quantity, start: date, end: date)
     //3. Save to the store
-
+  HKHealthStore().save(sample) { (success,error ) in
+    guard let error = error else {print("Successfully saved \(type)"); return}
+      print("Error saving \(type) \(error.localizedDescription)")
+    }
   }
   
   class func queryQuantitySum(for quantityType:HKQuantityType, unit:HKUnit,
