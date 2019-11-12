@@ -82,12 +82,24 @@ class ProfileDataStore {
     let endDate = Date()
     
     //1. Declare a statistics option and predicate
-    
-    
+    let sumOption = HKStatisticsOptions.cumulativeSum
+    let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: [])
     //2. Build the HKStatisticsQuery
-    
+    let statisticsSumQuery = HKStatisticsQuery(quantityType: quantityType, quantitySamplePredicate: predicate, options: sumOption, completionHandler: { (query, result, error) in
+      if let sumQuantity = result?.sumQuantity() {
+        DispatchQueue.main.async {
+          let total = sumQuantity.doubleValue(for: unit)
+          completion(total, nil)
+        }
+      }
+      else {
+        print("No sum quantity")
+        completion(nil,error)
+      }
+    })
     
     //3. Execute the query
+    HKHealthStore().execute(statisticsSumQuery)
   }
   
 
