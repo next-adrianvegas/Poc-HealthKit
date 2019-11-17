@@ -1,25 +1,25 @@
 # HealthKit : An apple a day keeps the doctor away
 ## Información General
-> El objetivo de esta PoC será el de conocer las funcionalidades que ofrece el framework HealthKit de Apple, así como casos reales de éxito y posibles usos dentro de la compañía.  
+El objetivo de esta PoC será el de conocer las funcionalidades que ofrece el framework HealthKit de Apple, así como casos reales de éxito y posibles usos dentro de la compañía.
 
 #### v1.0
 
 #### Autores
-> [Adrián Vegas](mailto:adrian.vegas.next@bbva.com)  
+[Adrián Vegas](mailto:adrian.vegas.next@bbva.com)
 
 #### TRIBU Mobile XX-10-2019
 
 #### iOS, Health, Framework
 
 ## Introducción
-> HealthKit ofrece una serie de herramientas para poder comunicarte con la aplicación Health(Salud) accediendo y compartiendo información  
->   
-> De esta manera una aplicación desarrollada con HealthKit podría recuperar los datos de peso y actividad física del usuario para definir objetivos de consumo de calorías o hacer recomendaciones dietéticas, a la vez que podría aportar datos sobre el consumo de calorías del usuario para que Health muestre por ejemplo métricas de progreso global que a su vez puede compartir con otras Apps.  
-> [Documentación oficial](https://developer.apple.com/documentation/healthkit)  
+HealthKit ofrece una serie de herramientas para poder comunicarte con la aplicación Health(Salud) accediendo y compartiendo información.
+
+De esta manera una aplicación desarrollada con HealthKit podría recuperar los datos de peso y actividad física del usuario para definir objetivos de consumo de calorías o hacer recomendaciones dietéticas, a la vez que podría aportar datos sobre el consumo de calorías del usuario para que Health muestre por ejemplo métricas de progreso global que a su vez puede compartir con otras Apps.
+[Documentación oficial](https://developer.apple.com/documentation/healthkit)
 
 ### Objetivo
 
-> El objetivo de esta PoC será el de conocer las funcionalidades que ofrece el framework HealthKit de Apple, así como casos reales de éxito y posibles usos dentro de la compañía.  
+ El objetivo de esta PoC será el de conocer las funcionalidades que ofrece el framework HealthKit de Apple, así como casos reales de éxito y posibles usos dentro de la compañía.
 
 ### Estado del arte
 
@@ -27,9 +27,24 @@
 > Esta sección trata de contextualizar la tecnología usada/evaluada en esta PoC dentro de tecnologías similares en el mercado. Información de cuándo aparecieron, trends de uso, popularidad, desarrollo, versiones disponibles, se identificarán tecnologías similares que pueden pertenecer o no al radar de la compañía
 ```
 
-Anunciado en  la WWDC (Worldwide Developers Conference) de **2014**, fue incluido en el SDK de iOS para Mac, con el propósito de proporcionar un repositorio central de datos de salud y estado físico en iPhone y Apple Watch, siendo una extensión clara para desarrolladores de la aplicación también presentada ese año **Health**.    
+Anunciado en la WWDC (Worldwide Developers Conference) de **2014**, fue incluido en el SDK de iOS para Mac, con el propósito de proporcionar las herramientas necesarias para acceder al repositorio central de datos de salud y estado físico en iPhone y Apple Watch que ofrece la aplicación**Health**  también presentada ese mismo año.    
 
 Actualmente disponible para su uso en apps que utilicen iOS 8.0 o superior, Mac Catalyst 13.0 o superior y watchOS 2.0 o superior.
+
+Según datos de Apple ya hay más de 70000 apps categorizadas como salud y fitness en la App Store, algunas de las más destacadas son : 
+
+* Nike Run Club
+* Clue
+* Runkeeper
+* Garmin Connect
+* AutoSleep
+* Pokemon GO
+
+A día de hoy HealthKit añade un plus a los dispositivos inteligentes relacionados con la actividad física ya que además de los ya más que conocidos relojes o pulseras inteligentes, podemos encontrar cada vez más productos como la [KettlelbellConnect](https://www.apple.com/shop/product/HNHM2ZM/A/jaxjox-kettlebellconnect?fnode=4a) o el casco inteligente [Lumos Smart Bike Helmet ](https://www.apple.com/shop/product/HLXM2VC/A/lumos-bike-helmet?fnode=4a) .  [Catálogo completo](https://www.apple.com/shop/iphone/iphone-accessories/health-fitness)  de accesorios de salud y fitness de Apple.
+
+El principal competidor de HealthKit no podría ser otro que su homologo en Android, Google Fit también presentado y lanzado en 2014. El framework de Google también cuenta con aplicaciones muy populares, como en  iOS podemos encontrar que las principales marcas deportivas han desarrollado sus apps utilizando este framework algunos ejemplos son Nike Run Club, Runtastic(Adidas) o Under Armour control.
+
+5 años después de su lanzamiento, HealthKit sigue siendo un framework muy vivo y que presenta actualizaciones año trás año como se pudo ver en la WWDC de 2019, donde presentaron novedades  en el modelo de datos, nuevas APIS para cuantificar repeticiones (Quantity series) o como recopilar información sobre el ritmo cardiaco usando en apps para apple watch.([WWDC 2019 - Apple Developer - HealhtKit](https://developer.apple.com/videos/play/wwdc2019/218/))
 
 
 ## Material
