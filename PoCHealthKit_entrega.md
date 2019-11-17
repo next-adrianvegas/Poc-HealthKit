@@ -1,4 +1,4 @@
-# HealthKit : An apple a day keeps the doctor away 
+# HealthKit : An apple a day keeps the doctor away
 ## Información General
 > El objetivo de esta PoC será el de conocer las funcionalidades que ofrece el framework HealthKit de Apple, así como casos reales de éxito y posibles usos dentro de la compañía.  
 
@@ -12,8 +12,10 @@
 #### iOS, Health, Framework
 
 ## Introducción
-> HealthKit de Apple ofrece una serie de utilidades para almacenar, analizar y visualizar datos sobre salud y vida saludable.  
->  [Documentación oficial](https://developer.apple.com/documentation/healthkit)   
+> HealthKit ofrece una serie de herramientas para poder comunicarte con la aplicación Health(Salud) accediendo y compartiendo información  
+>   
+> De esta manera una aplicación desarrollada con HealthKit podría recuperar los datos de peso y actividad física del usuario para definir objetivos de consumo de calorías o hacer recomendaciones dietéticas, a la vez que podría aportar datos sobre el consumo de calorías del usuario para que Health muestre por ejemplo métricas de progreso global que a su vez puede compartir con otras Apps.  
+> [Documentación oficial](https://developer.apple.com/documentation/healthkit)  
 
 ### Objetivo
 
@@ -21,7 +23,14 @@
 
 ### Estado del arte
 
-> Esta sección trata de contextualizar la tecnología usada/evaluada en esta PoC dentro de tecnologías similares en el mercado. Información de cuándo aparecieron, trends de uso, popularidad, desarrollo, versiones disponibles, se identificarán tecnologías similares que pueden pertenecer o no al radar de la compañía  
+```
+> Esta sección trata de contextualizar la tecnología usada/evaluada en esta PoC dentro de tecnologías similares en el mercado. Información de cuándo aparecieron, trends de uso, popularidad, desarrollo, versiones disponibles, se identificarán tecnologías similares que pueden pertenecer o no al radar de la compañía
+```
+
+Anunciado en  la WWDC (Worldwide Developers Conference) de **2014**, fue incluido en el SDK de iOS para Mac, con el propósito de proporcionar un repositorio central de datos de salud y estado físico en iPhone y Apple Watch, siendo una extensión clara para desarrolladores de la aplicación también presentada ese año **Health**.    
+
+Actualmente disponible para su uso en apps que utilicen iOS 8.0 o superior, Mac Catalyst 13.0 o superior y watchOS 2.0 o superior.
+
 
 ## Material
 > En esta sección tiene que describirse todo el material utilizado para cualquier parte de la PoC.  
@@ -36,17 +45,15 @@
 ##### Sub^3-sección de ejemplo
 
 ## Métodos
-> En esta sección se describe la metodología de la PoC:* Experimentos al menos una tecnología de las categorías Core o Adoptar con la que comparar (si no es posible, en esta sección se debe especificar por qué)  
-> * Diseño de la planteados para probar la tecnología  
+> En esta sección se describe la metodología de la PoC:* Experimentos al menos una tecnología de las categorías Core o Adoptar con la que comparar (si no es posible, en esta sección se debe especificar por qué)* Diseño de la planteados para probar la tecnología  
 > * Se seleccionará metodología de evaluación si se va a comparar con otra tecnología diferente  
 > * Procedimientos para montar la infraestructura necesaria  
 > * Procedimientos para crear cuentas necesarias  
 
-> *A veces puede resultar confuso dónde poner cierto contenido. Por ejemplo: Si estoy montando una infraestructura cloud para probar una tecnología, en métodos deberán especificarse los detalles de esa infraestructura, o scripts de terraform. Sin embargo, si el objetivo de la PoC es `probar una infraestructura`, entonces dicho terraform deberá ir en Resultados*  
+> /A veces puede resultar confuso dónde poner cierto contenido. Por ejemplo: Si estoy montando una infraestructura cloud para probar una tecnología, en métodos deberán especificarse los detalles de esa infraestructura, o scripts de terraform. Sin embargo, si el objetivo de la PoC es `probar una infraestructura`, entonces dicho terraform deberá ir en Resultados/  
 
 ## Resultados
-> En esta sección se describen (sin comentarios de valor, o juicios) los resultados obtenidos.* Scripts de terraform  
-> * Código evaluado  
+> En esta sección se describen (sin comentarios de valor, o juicios) los resultados obtenidos.* Scripts de terraform* Código evaluado  
 > * Tiempos de ejecución  
 > * Precisión de algoritmos  
 > * Gráficos de resultados  
@@ -56,10 +63,9 @@
 ## Código generado
 > En esta sección deberán incluirse todos los links al código generado de la PoC.  
 
-> La estructura de archivos será la siguiente:* [poc-título-de-la-poc]  
-> 	* Modelo PoC (este mismo documento en Markdown)  
-> 	* [code]  
-> 	* [configuration files]  
+> La estructura de archivos será la siguiente:* [poc-título-de-la-poc]* Modelo PoC (este mismo documento en Markdown)  
+> * [code]  
+> * [configuration files]  
 
 ### Costes
 > En esta sección de resultados se deben especificar los costes de la PoC, tanto en infraestructura como en tiempo de realización.  
@@ -68,8 +74,7 @@
 > En esta sección se comentan los resultados uno a uno, se discuten las comparativas. Es aquí donde debe ir TODO juicio de valor de quien lo escribe, opiniones, etc. En esta sección se deberá revisar el triángulo: tiempo-alcance-incertidumbre con el objetivo de resolver las conclusiones de la última sección.  
 
 ### Limitaciones
-> En esta sección se describen las limitaciones de la PoC:* Cosas que no se han podido probar (por qué no se ha probado, el alcance de tu trabajo y de tus conclusiones)  
-> * Evaluaciones que no se han realizado y que molaría hacer (futuras PoCs?)  
+> En esta sección se describen las limitaciones de la PoC:* Cosas que no se han podido probar (por qué no se ha probado, el alcance de tu trabajo y de tus conclusiones)* Evaluaciones que no se han realizado y que molaría hacer (futuras PoCs?)  
 > * Limitaciones de la tecnología: Las limitaciones propias de la tecnología deberán discutirse en Discusión y en Resultados así como derivar en conclusiones.  
 
 ### Ejemplo de caso de uso
