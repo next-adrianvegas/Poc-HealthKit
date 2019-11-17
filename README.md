@@ -4,7 +4,8 @@
 
 
 # Poc-HealthKit
-HealthKit de Apple ofrece una serie de utilidades para almacenar, analizar y visualizar datos sobre salud y vida saludable.
-
+[Documento propuesta](https://github.com/next-adrianvegas/Poc-HealthKit/blob/master/PoCHealthKit_propuesta.md)
+[Documento entrega](https://github.com/next-adrianvegas/Poc-HealthKit/blob/master/PoCHealthKit_entrega.md)
+[Código generado - Healthkit Quicktstart](https://github.com/next-adrianvegas/Poc-HealthKit/tree/master/code_examples/HealthKitQuickStart)
 
 
