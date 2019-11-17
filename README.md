@@ -4,10 +4,8 @@
 
 
 # Poc-HealthKit
-[Documento propuesta](https://github.com/next-adrianvegas/Poc-HealthKit/blob/master/PoCHealthKit_propuesta.md)
-
-[Documento entrega](https://github.com/next-adrianvegas/Poc-HealthKit/blob/master/PoCHealthKit_entrega.md)
-
-[Código generado - Healthkit Quicktstart](https://github.com/next-adrianvegas/Poc-HealthKit/tree/master/code_examples/HealthKitQuickStart)
+* [Documento propuesta](https://github.com/next-adrianvegas/Poc-HealthKit/blob/master/PoCHealthKit_propuesta.md)
+* [Documento entrega](https://github.com/next-adrianvegas/Poc-HealthKit/blob/master/PoCHealthKit_entrega.md)
+* [Código generado - Healthkit Quicktstart](https://github.com/next-adrianvegas/Poc-HealthKit/tree/master/code_examples/HealthKitQuickStart)
 
 
