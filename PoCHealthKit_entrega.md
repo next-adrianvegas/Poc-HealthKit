@@ -55,9 +55,9 @@ El principal competidor de HealthKit no podría ser otro que su homologo en Andr
 > * Cuentas de APIs necesarias  
 > * Datos de prueba (y dónde conseguirlos mediante link directo)  
 
-### Subsección de ejemplo
-#### Sub^2-sección de ejemplo
-##### Sub^3-sección de ejemplo
+Para está PoC unicamente  ha sido necesaria la utilización del portátil corporativo, MacBook Pro ( Early 2015, 2,7 GHz Intel Core i5, 16GB Memoria Ram) y conexión a internet .
+ Las aplicaciones han corrido sobre el emulador de Iphone de Xcode.
+
 
 ## Métodos
 > En esta sección se describe la metodología de la PoC:* Experimentos al menos una tecnología de las categorías Core o Adoptar con la que comparar (si no es posible, en esta sección se debe especificar por qué)* Diseño de la planteados para probar la tecnología  
@@ -65,7 +65,8 @@ El principal competidor de HealthKit no podría ser otro que su homologo en Andr
 > * Procedimientos para montar la infraestructura necesaria  
 > * Procedimientos para crear cuentas necesarias  
 
-> /A veces puede resultar confuso dónde poner cierto contenido. Por ejemplo: Si estoy montando una infraestructura cloud para probar una tecnología, en métodos deberán especificarse los detalles de esa infraestructura, o scripts de terraform. Sin embargo, si el objetivo de la PoC es `probar una infraestructura`, entonces dicho terraform deberá ir en Resultados/  
+Se ha estudiado el framework HealthKit de Apple para iOS, desarrollando varias aplicaciones en las que se han probado sus principales características.
+Se ha comparado con el framework  Google Fit, su principal competidor.
 
 ## Resultados
 > En esta sección se describen (sin comentarios de valor, o juicios) los resultados obtenidos.* Scripts de terraform* Código evaluado  
@@ -75,15 +76,26 @@ El principal competidor de HealthKit no podría ser otro que su homologo en Andr
 
 > Si se ha generado código durante la evaluación, se describirá en una sección cómo reproducir exactamente los resultados de la poc ya sea por pasos a seguir, como comandos a usar y archivos dentro del repositorio.  
 
+Proyecto HealthKitQuickStart : 
+[Repositorio](https://github.com/next-adrianvegas/Poc-HealthKit/tree/master/code_examples/HealthKitQuickStart)
+
+En este proyecto propuesto en la web raywenderlich.com se ha tomado un proyecto creado con distintos  ‘TODO’ repartidos por el código, donde se han resuelto las siguientes funcionalidades del framework  :
+
+* Petición de permisos al usuario
+* Leer información del usuario desde la App _Salud_ 
+* Persistir información desde HealthKit
+* Realizar una media de datos dado un período de tiempo para su visualización en la App  _Salud_ 
+
 ## Código generado
 > En esta sección deberán incluirse todos los links al código generado de la PoC.  
 
-> La estructura de archivos será la siguiente:* [poc-título-de-la-poc]* Modelo PoC (este mismo documento en Markdown)  
-> * [code]  
-> * [configuration files]  
+* [HealthKitQuickStart](https://github.com/next-adrianvegas/Poc-HealthKit/tree/master/code_examples/HealthKitQuickStart)
+* 
 
 ### Costes
 > En esta sección de resultados se deben especificar los costes de la PoC, tanto en infraestructura como en tiempo de realización.  
+
+En esta PoC se han dedicado  unas 15 horas.
 
 ## Discusión
 > En esta sección se comentan los resultados uno a uno, se discuten las comparativas. Es aquí donde debe ir TODO juicio de valor de quien lo escribe, opiniones, etc. En esta sección se deberá revisar el triángulo: tiempo-alcance-incertidumbre con el objetivo de resolver las conclusiones de la última sección.  
@@ -95,8 +107,10 @@ El principal competidor de HealthKit no podría ser otro que su homologo en Andr
 ### Ejemplo de caso de uso
 > En esta sección se discute, a la vista de resultados, una posible aplicación dentro de [BBVA Next Technologies](https://www.bbvanexttechnologies.com/) de la(s) tecnología(s) evaluada(s). No es necesario implementarla, sino dar idea de utilidades posibles de la tecnología  
 
+
 #### Costes
 > Aquí se deben describir los costes del supuesto caso de uso. Pueden ser aproximados, pero en líneas generales deben dar una idea de las posibilidades de la tecnología desde el punto de vista económico.  
+
 
 ## Conclusiones
 > En esta sección deben estar todas las conclusiones del trabajo. **Cuidado con realizar especulaciones**, es importante que sean conclusiones que deriven directamente del trabajo realizado y de la tecnología: pros y contras así como limitaciones de implantación. Es importante que en las conclusiones aparezcan ventajas y desventajas de la tecnología como resultado de la PoC  
