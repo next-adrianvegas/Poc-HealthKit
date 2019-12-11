@@ -35,7 +35,25 @@
         <!--WorkoutInterfaceController-->
         <scene sceneID="mat-fH-qd8">
             <objects>
-                <controller identifier="WorkoutInterfaceController" id="2f2-P5-pjk" customClass="WorkoutInterfaceController" customModule="HealthKitWorkoutApp_WatchKit_Extension"/>
+                <controller identifier="WorkoutInterfaceController" id="2f2-P5-pjk" customClass="WorkoutInterfaceController" customModule="HealthKitWorkoutApp_WatchKit_Extension">
+                    <items>
+                        <button alignment="left" id="1AO-L1-4dy">
+                            <group key="contentGroup" width="1" alignment="left" layout="vertical" spacing="0.0" id="bTT-QE-VK6">
+                                <items>
+                                    <label alignment="center" text="0.00" id="Tle-gC-HNE">
+                                        <fontDescription key="font" type="system" pointSize="48"/>
+                                    </label>
+                                    <label alignment="center" text="KILOMETROS" id="hHb-LY-lcl">
+                                        <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
+                                    </label>
+                                </items>
+                            </group>
+                        </button>
+                        <button width="1" alignment="left" verticalAlignment="bottom" title="Parar" id="TTc-8v-msH"/>
+                        <button width="1" alignment="left" verticalAlignment="bottom" title="Continuar" id="pXT-Gq-nRj"/>
+                        <button width="1" alignment="left" verticalAlignment="bottom" title="Terminar" id="TO1-xR-WRP"/>
+                    </items>
+                </controller>
             </objects>
             <point key="canvasLocation" x="256" y="31"/>
         </scene>
