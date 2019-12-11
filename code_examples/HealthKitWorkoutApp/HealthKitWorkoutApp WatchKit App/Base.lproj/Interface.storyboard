@@ -48,11 +48,33 @@
                                     </label>
                                 </items>
                             </group>
+                            <connections>
+                                <action selector="changeDisplayMode" destination="2f2-P5-pjk" id="40V-jU-izZ"/>
+                            </connections>
                         </button>
-                        <button width="1" alignment="left" verticalAlignment="bottom" title="Parar" id="TTc-8v-msH"/>
-                        <button width="1" alignment="left" verticalAlignment="bottom" title="Continuar" id="pXT-Gq-nRj"/>
-                        <button width="1" alignment="left" verticalAlignment="bottom" title="Terminar" id="TO1-xR-WRP"/>
+                        <button width="1" alignment="left" verticalAlignment="bottom" title="Parar" id="TTc-8v-msH">
+                            <connections>
+                                <action selector="stopWorkout" destination="2f2-P5-pjk" id="6bn-5m-LLw"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" verticalAlignment="bottom" hidden="YES" title="Continuar" id="pXT-Gq-nRj">
+                            <connections>
+                                <action selector="resumeWorkout" destination="2f2-P5-pjk" id="9ha-wd-tk4"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" verticalAlignment="bottom" hidden="YES" title="Terminar" id="TO1-xR-WRP">
+                            <connections>
+                                <action selector="endWorkout" destination="2f2-P5-pjk" id="efj-gV-9I2"/>
+                            </connections>
+                        </button>
                     </items>
+                    <connections>
+                        <outlet property="endButton" destination="TO1-xR-WRP" id="Tp3-Rm-Df2"/>
+                        <outlet property="quantityLabel" destination="Tle-gC-HNE" id="7w3-Jr-cu1"/>
+                        <outlet property="resumeButton" destination="pXT-Gq-nRj" id="OX9-ba-msK"/>
+                        <outlet property="stopButton" destination="TTc-8v-msH" id="r19-Zl-dUr"/>
+                        <outlet property="unitLabel" destination="hHb-LY-lcl" id="DZB-WZ-RiU"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="256" y="31"/>
