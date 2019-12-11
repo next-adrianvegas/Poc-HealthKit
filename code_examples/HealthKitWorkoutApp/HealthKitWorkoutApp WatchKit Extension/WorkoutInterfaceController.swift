@@ -8,7 +8,7 @@
 
 import WatchKit
 import Foundation
-
+import HealthKit
 
 class WorkoutInterfaceController: WKInterfaceController {
 
@@ -18,6 +18,9 @@ class WorkoutInterfaceController: WKInterfaceController {
     @IBOutlet weak var stopButton: WKInterfaceButton!
     @IBOutlet weak var resumeButton: WKInterfaceButton!
     @IBOutlet weak var endButton: WKInterfaceButton!
+    
+    var healthStore: HKHealthStore?
+    
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)

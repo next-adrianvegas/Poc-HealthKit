@@ -48,6 +48,6 @@ class InterfaceController: WKInterfaceController {
         guard HKHealthStore.isHealthDataAvailable() else {return}
         
         WKInterfaceController.reloadRootControllers(withNames: ["WorkoutInterfaceController"],
-                                                    contexts: selectedActivity)
+                                                    contexts: [selectedActivity])
     }
 }
