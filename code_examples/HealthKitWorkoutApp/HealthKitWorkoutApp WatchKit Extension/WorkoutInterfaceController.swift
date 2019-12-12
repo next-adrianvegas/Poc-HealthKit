@@ -21,6 +21,9 @@ class WorkoutInterfaceController: WKInterfaceController {
     
     var healthStore: HKHealthStore?
     var distanceType = HKQuantityTypeIdentifier.distanceCycling
+    var workoutStartDate = Date()
+    var activeDataQueries = [HKQuery]()
+    
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
@@ -78,5 +81,31 @@ class WorkoutInterfaceController: WKInterfaceController {
     @IBAction func resumeWorkout() {
     }
     @IBAction func endWorkout() {
+    }
+    
+    func startQuery(quantityTypeIdentifier: HKQuantityTypeIdentifier) {
+        //Only want data after workout start date and from our device
+        let datePredicate = HKQuery.predicateForSamples(withStart: workoutStartDate, end: nil, options: .strictStartDate)
+        let devicePredicate = HKQuery.predicateForObjects(from: [HKDevice.local()])
+        let queryPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [datePredicate, devicePredicate])
+        
+        let updateHandler: (HKAnchoredObjectQuery, [HKSample]?, [HKDeletedObject]?, HKQueryAnchor?,
+            Error?) -> Void = {query, samples, deletedObjects, queryAnchor, error in
+                guard let samples = samples as? [HKQuantitySample] else {return}
+                print(samples)
+        }
+        
+        let query = HKAnchoredObjectQuery(type: HKObjectType.quantityType(forIdentifier: quantityTypeIdentifier)!, predicate: queryPredicate, anchor: nil, limit: HKObjectQueryNoLimit, resultsHandler: updateHandler)
+        
+        query.updateHandler = updateHandler
+        healthStore?.execute(query)
+        activeDataQueries.append(query)
+    }
+    
+    func startQueries() {
+        startQuery(quantityTypeIdentifier: distanceType)
+        startQuery(quantityTypeIdentifier: .activeEnergyBurned)
+        startQuery(quantityTypeIdentifier: .heartRate)
+        WKInterfaceDevice.current().play(.start)
     }
 }
