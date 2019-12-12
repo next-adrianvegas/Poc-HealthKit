@@ -20,12 +20,45 @@ class WorkoutInterfaceController: WKInterfaceController {
     @IBOutlet weak var endButton: WKInterfaceButton!
     
     var healthStore: HKHealthStore?
-    
+    var distanceType = HKQuantityTypeIdentifier.distanceCycling
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
-        // Configure interface objects here.
+        guard let activity = context as? HKWorkoutActivityType else {return}
+        
+        switch activity {
+        case .cycling:
+            distanceType = .distanceCycling
+        case .running:
+            distanceType = .distanceWalkingRunning
+        case .swimming:
+            distanceType = .distanceSwimming
+        default:
+            distanceType = .distanceCycling
+        }
+        
+        //Values to write
+        let writeTypes: Set<HKSampleType> = [.workoutType(),
+                                             HKSampleType.quantityType(forIdentifier: .heartRate)!,
+                                             HKSampleType.quantityType(forIdentifier: .activeEnergyBurned)!,
+                                             HKSampleType.quantityType(forIdentifier: distanceType)!]
+        
+        //Values to read
+        let readTypes: Set<HKObjectType> = [.activitySummaryType(), .workoutType(),
+                                             HKObjectType.quantityType(forIdentifier: .heartRate)!,
+                                             HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)!,
+                                             HKObjectType.quantityType(forIdentifier: distanceType)!]
+        //Health Store
+        healthStore = HKHealthStore()
+        
+        //use it to request auth for our types
+        healthStore?.requestAuthorization(toShare: writeTypes, read: readTypes) { success, error in
+            if success {
+                //Start
+            }
+        }
+    
     }
 
     override func willActivate() {
