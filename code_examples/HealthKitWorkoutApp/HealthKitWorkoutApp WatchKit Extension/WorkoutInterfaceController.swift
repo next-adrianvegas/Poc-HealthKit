@@ -10,7 +10,7 @@ import WatchKit
 import Foundation
 import HealthKit
 
-class WorkoutInterfaceController: WKInterfaceController {
+class WorkoutInterfaceController: WKInterfaceController, HKWorkoutSessionDelegate {
 
     @IBOutlet weak var quantityLabel: WKInterfaceLabel!
     @IBOutlet weak var unitLabel: WKInterfaceLabel!
@@ -23,7 +23,7 @@ class WorkoutInterfaceController: WKInterfaceController {
     var distanceType = HKQuantityTypeIdentifier.distanceCycling
     var workoutStartDate = Date()
     var activeDataQueries = [HKQuery]()
-    
+    var workoutSession: HKWorkoutSession?
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
@@ -58,10 +58,10 @@ class WorkoutInterfaceController: WKInterfaceController {
         //use it to request auth for our types
         healthStore?.requestAuthorization(toShare: writeTypes, read: readTypes) { success, error in
             if success {
-                //Start
+                //Start workout
+                self.startWorkout(type: activity)
             }
         }
-    
     }
 
     override func willActivate() {
@@ -73,6 +73,34 @@ class WorkoutInterfaceController: WKInterfaceController {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
+    
+    func workoutSession(_ workoutSession: HKWorkoutSession, didChangeTo toState:
+        HKWorkoutSessionState, from fromState: HKWorkoutSessionState, date: Date) {
+        
+        
+        
+    }
+    
+    func workoutSession(_ workoutSession: HKWorkoutSession, didFailWithError error:Error) {
+        
+    }
+    
+    func startWorkout(type: HKWorkoutActivityType) {
+        //workout configuration
+        let config = HKWorkoutConfiguration()
+        config.activityType = type
+        config.locationType = .outdoor
+        
+        //create workout session
+        if let session = try? HKWorkoutSession(configuration: config) {
+            workoutSession = session
+            healthStore?.start(session)
+            workoutStartDate = Date()
+            session.delegate = self
+        }
+    }
+    
+    
     @IBAction func changeDisplayMode() {
     }
     
