@@ -167,6 +167,26 @@ class WorkoutInterfaceController: WKInterfaceController, HKWorkoutSessionDelegat
         activeDataQueries.removeAll()
     }
     
+    func save(_ workoutSession: HKWorkoutSession) {
+        let config = workoutSession.workoutConfiguration
+
+     let workout = HKWorkout(activityType: config.activityType,
+                            start: workoutStartDate, end: workoutEndDate,
+                            workoutEvents:nil,
+                            totalEnergyBurned: totalEnergyBurned,
+                            totalDistance: totalDistance,
+                            metadata: [HKMetadataKeyIndoorWorkout: false])
+       
+        
+        healthStore?.save(workout) {
+                (success, error) in
+            if success {
+                WKInterfaceController.reloadRootControllers(withNames: ["InterfaceController"], contexts: nil)
+            }
+        }
+   
+    }
+    
     func updateLabels() {
         
         switch displayMode {
