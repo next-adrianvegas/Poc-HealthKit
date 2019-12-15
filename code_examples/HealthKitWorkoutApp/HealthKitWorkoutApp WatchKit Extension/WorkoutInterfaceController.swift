@@ -34,6 +34,10 @@ class WorkoutInterfaceController: WKInterfaceController, HKWorkoutSessionDelegat
     let countPerMinuteUnir = HKUnit(from: "count/min")
     var displayMode = DisplayMode.distance
     var workoutIsActive = true
+    var workoutEndDate = Date()
+    
+    
+    
     
 
     override func awake(withContext context: Any?) {
@@ -119,13 +123,42 @@ class WorkoutInterfaceController: WKInterfaceController, HKWorkoutSessionDelegat
     
     
     @IBAction func changeDisplayMode() {
+        switch displayMode {
+        case .distance:
+            displayMode = .energy
+        case .energy:
+            displayMode = .heartRate
+        case .heartRate:
+            displayMode = .distance
+        }
+        updateLabels()
     }
     
     @IBAction func stopWorkout() {
+        guard let workoutSession = workoutSession else {return}
+
+        stopButton.setHidden(true)
+        resumeButton.setHidden(false)
+        endButton.setHidden(false)
+        
+        healthStore?.pause(workoutSession)
     }
+    
     @IBAction func resumeWorkout() {
+        guard let workoutSession = workoutSession else {return}
+
+        stopButton.setHidden(false)
+        resumeButton.setHidden(true)
+        endButton.setHidden(true)
+        
+        healthStore?.resumeWorkoutSession(workoutSession)
     }
     @IBAction func endWorkout() {
+        guard let workoutSession = workoutSession else {return}
+        
+        workoutEndDate = Date()
+        healthStore?.end(workoutSession)
+    
     }
     
     func updateLabels() {
@@ -147,8 +180,31 @@ class WorkoutInterfaceController: WKInterfaceController, HKWorkoutSessionDelegat
             let heartRate = String(Int(lastHeartRate))
             quantityLabel.setText(heartRate)
             unitLabel.setText("BEATS / MINUTE")
-        default:
-            <#code#>
+        }
+    }
+        
+    func process(_ samples: [HKQuantitySample], type: HKQuantityTypeIdentifier) {
+        guard workoutIsActive else {return}
+        for sample in samples {
+            if type == .activeEnergyBurned {
+                //calories burned
+                let newEenergy = sample.quantity.doubleValue(for: HKUnit.kilocalorie())
+                //get our current total calorie burn
+                let currentEnergy = totalEnergyBurned.doubleValue(for: HKUnit.kilocalorie())
+
+                totalEnergyBurned = HKQuantity(unit: HKUnit.kilocalorie(), doubleValue: currentEnergy + newEenergy)
+                
+                print("Total energy: \(totalEnergyBurned)")
+            } else if type == .heartRate {
+                lastHeartRate = sample.quantity.doubleValue(for: countPerMinuteUnir)
+                //lastHeartRate = sample.quantity.doubleValue(for: counterPerMinuteUnit)
+                print("Last heart rate: \(lastHeartRate)")
+            } else if type == distanceType {
+                let newDistance = sample.quantity.doubleValue(for: HKUnit.meter())
+                let currentDistance = totalDistance.doubleValue(for: HKUnit.meter())
+                totalDistance = HKQuantity(unit: HKUnit.meter(), doubleValue: currentDistance + newDistance)
+                print("Total distance: \(totalDistance)")
+            }
         }
     }
     
@@ -161,13 +217,13 @@ class WorkoutInterfaceController: WKInterfaceController, HKWorkoutSessionDelegat
         let updateHandler: (HKAnchoredObjectQuery, [HKSample]?, [HKDeletedObject]?, HKQueryAnchor?,
             Error?) -> Void = {query, samples, deletedObjects, queryAnchor, error in
                 guard let samples = samples as? [HKQuantitySample] else {return}
-                print(samples)
+                self.process(samples, type: quantityTypeIdentifier)
         }
         
         let query = HKAnchoredObjectQuery(type: HKObjectType.quantityType(forIdentifier: quantityTypeIdentifier)!, predicate: queryPredicate, anchor: nil, limit: HKObjectQueryNoLimit, resultsHandler: updateHandler)
         
         query.updateHandler = updateHandler
-        healthStore?.execute(query)
+        healthStore?.execute(query) 
         activeDataQueries.append(query)
     }
     
