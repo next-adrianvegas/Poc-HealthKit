@@ -77,8 +77,14 @@ class WorkoutInterfaceController: WKInterfaceController, HKWorkoutSessionDelegat
     func workoutSession(_ workoutSession: HKWorkoutSession, didChangeTo toState:
         HKWorkoutSessionState, from fromState: HKWorkoutSessionState, date: Date) {
         
-        
-        
+        switch toState {
+        case .running:
+            if fromState == . notStarted{
+                startQueries()
+            }
+        default:
+            break
+        }
     }
     
     func workoutSession(_ workoutSession: HKWorkoutSession, didFailWithError error:Error) {
