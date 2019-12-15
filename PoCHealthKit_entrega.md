@@ -55,8 +55,8 @@ El principal competidor de HealthKit no podría ser otro que su homologo en Andr
 > * Cuentas de APIs necesarias  
 > * Datos de prueba (y dónde conseguirlos mediante link directo)  
 
-Para está PoC unicamente  ha sido necesaria la utilización del portátil corporativo, MacBook Pro ( Early 2015, 2,7 GHz Intel Core i5, 16GB Memoria Ram) y conexión a internet .
- Las aplicaciones han corrido sobre el emulador de Iphone de Xcode.
+Para está PoC únicamente  ha sido necesaria la utilización del portátil corporativo, MacBook Pro ( Early 2015, 2,7 GHz Intel Core i5, 16GB Memoria RAM) y conexión a internet .
+ Las aplicaciones han corrido sobre el emulador de IPhone de Xcode.
 
 
 ## Métodos
@@ -90,7 +90,7 @@ En este proyecto propuesto en la web raywenderlich.com se ha tomado un proyecto 
 > En esta sección deberán incluirse todos los links al código generado de la PoC.  
 
 * [HealthKitQuickStart](https://github.com/next-adrianvegas/Poc-HealthKit/tree/master/code_examples/HealthKitQuickStart)
-* 
+* [HealthKitWorkoutApp for Apple Watch](https://github.com/next-adrianvegas/Poc-HealthKit/tree/master/code_examples/HealthKitWorkoutApp)
 
 ### Costes
 > En esta sección de resultados se deben especificar los costes de la PoC, tanto en infraestructura como en tiempo de realización.  
@@ -100,9 +100,13 @@ En esta PoC se han dedicado  unas 15 horas.
 ## Discusión
 > En esta sección se comentan los resultados uno a uno, se discuten las comparativas. Es aquí donde debe ir TODO juicio de valor de quien lo escribe, opiniones, etc. En esta sección se deberá revisar el triángulo: tiempo-alcance-incertidumbre con el objetivo de resolver las conclusiones de la última sección.  
 
+
+
 ### Limitaciones
 > En esta sección se describen las limitaciones de la PoC:* Cosas que no se han podido probar (por qué no se ha probado, el alcance de tu trabajo y de tus conclusiones)* Evaluaciones que no se han realizado y que molaría hacer (futuras PoCs?)  
 > * Limitaciones de la tecnología: Las limitaciones propias de la tecnología deberán discutirse en Discusión y en Resultados así como derivar en conclusiones.  
+
+Me habría gustado probar la implementación de HealthKit en una App existente, añadiendo una funcionalidad relacionada con el estilo de vida saludable, no lo he realizado porque considero en parte no es el objetivo de esta PoC, además de por la complejidad de la que podía requerir esta implementación, pero al fin y al cabo sería lo más parecido a ofrecer un caso real de uso a nuestra compañía. 
 
 ### Ejemplo de caso de uso
 > En esta sección se discute, a la vista de resultados, una posible aplicación dentro de [BBVA Next Technologies](https://www.bbvanexttechnologies.com/) de la(s) tecnología(s) evaluada(s). No es necesario implementarla, sino dar idea de utilidades posibles de la tecnología  
@@ -114,3 +118,5 @@ En esta PoC se han dedicado  unas 15 horas.
 
 ## Conclusiones
 > En esta sección deben estar todas las conclusiones del trabajo. **Cuidado con realizar especulaciones**, es importante que sean conclusiones que deriven directamente del trabajo realizado y de la tecnología: pros y contras así como limitaciones de implantación. Es importante que en las conclusiones aparezcan ventajas y desventajas de la tecnología como resultado de la PoC  
+>   
+El **mercado** está bastante **saturado** de productos que ofrecen un control sobre **buenos hábitos** o un registro sobre **actividades físicas**, sin embargo dado que la implementación del framework y su uso es bastante sencillo y que se apoya sobre un marco de datos bastante amplio, resultaría bastante sencillo implementar una funcionalidad relacionada con hábitos saludables o ejercicio físico en cualquier tipo de aplicación, como comento en el punto anterior “casos de uso”.
