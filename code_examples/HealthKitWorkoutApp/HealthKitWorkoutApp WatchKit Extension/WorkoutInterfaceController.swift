@@ -158,7 +158,13 @@ class WorkoutInterfaceController: WKInterfaceController, HKWorkoutSessionDelegat
         
         workoutEndDate = Date()
         healthStore?.end(workoutSession)
+    }
     
+    func cleanUpQueries() {
+        for query in activeDataQueries {
+            healthStore?.stop(query)
+        }
+        activeDataQueries.removeAll()
     }
     
     func updateLabels() {
