@@ -96,7 +96,15 @@ class WorkoutInterfaceController: WKInterfaceController, HKWorkoutSessionDelegat
         case .running:
             if fromState == . notStarted{
                 startQueries()
+            } else {
+                workoutIsActive = true
             }
+        case .paused:
+            workoutIsActive = false
+        case .ended:
+            workoutIsActive = false
+            cleanUpQueries()
+            save(workoutSession)
         default:
             break
         }
