@@ -10,6 +10,10 @@ import WatchKit
 import Foundation
 import HealthKit
 
+enum DisplayMode {
+    case distance, energy, heartRate
+}
+
 class WorkoutInterfaceController: WKInterfaceController, HKWorkoutSessionDelegate {
 
     @IBOutlet weak var quantityLabel: WKInterfaceLabel!
@@ -24,7 +28,14 @@ class WorkoutInterfaceController: WKInterfaceController, HKWorkoutSessionDelegat
     var workoutStartDate = Date()
     var activeDataQueries = [HKQuery]()
     var workoutSession: HKWorkoutSession?
+    var totalEnergyBurned = HKQuantity(unit: HKUnit.kilocalorie(), doubleValue: 0)
+    var totalDistance = HKQuantity(unit: HKUnit.meter(), doubleValue: 0)
+    var lastHeartRate = 0.0
+    let countPerMinuteUnir = HKUnit(from: "count/min")
+    var displayMode = DisplayMode.distance
+    var workoutIsActive = true
     
+
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
@@ -115,6 +126,30 @@ class WorkoutInterfaceController: WKInterfaceController, HKWorkoutSessionDelegat
     @IBAction func resumeWorkout() {
     }
     @IBAction func endWorkout() {
+    }
+    
+    func updateLabels() {
+        
+        switch displayMode {
+       
+        case .distance:
+            let meters = totalDistance.doubleValue(for: HKUnit.meter())
+            let kilometers = meters / 1000
+            let formattedKilometers = String(format: "%2.f", kilometers)
+            quantityLabel.setText(formattedKilometers)
+            unitLabel.setText("KILOMETERS")
+        case .energy:
+            let kiloCalories = totalEnergyBurned.doubleValue(for: HKUnit.kilocalorie())
+            let formattedKilocalories = String(format: "%.02", kiloCalories)
+            quantityLabel.setText(formattedKilocalories)
+            unitLabel.setText("CALORIES")
+        case .heartRate:
+            let heartRate = String(Int(lastHeartRate))
+            quantityLabel.setText(heartRate)
+            unitLabel.setText("BEATS / MINUTE")
+        default:
+            <#code#>
+        }
     }
     
     func startQuery(quantityTypeIdentifier: HKQuantityTypeIdentifier) {
