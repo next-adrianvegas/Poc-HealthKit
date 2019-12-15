@@ -207,7 +207,7 @@ class WorkoutInterfaceController: WKInterfaceController, HKWorkoutSessionDelegat
             unitLabel.setText("KILOMETERS")
         case .energy:
             let kiloCalories = totalEnergyBurned.doubleValue(for: HKUnit.kilocalorie())
-            let formattedKilocalories = String(format: "%.02", kiloCalories)
+            let formattedKilocalories = String(format: "%.0f", kiloCalories)
             quantityLabel.setText(formattedKilocalories)
             unitLabel.setText("CALORIES")
         case .heartRate:
