@@ -123,6 +123,23 @@ Me habría gustado probar la implementación de HealthKit en una App existente, 
 ### Ejemplo de caso de uso
 > En esta sección se discute, a la vista de resultados, una posible aplicación dentro de [BBVA Next Technologies](https://www.bbvanexttechnologies.com/) de la(s) tecnología(s) evaluada(s). No es necesario implementarla, sino dar idea de utilidades posibles de la tecnología  
 
+Caso de uso interno: 
+
+**Aplicación contra la vida sedentaria**
+Aplicación que ayuda y premia al trabajador por llevar un estilo de vida saludable y responsable, recordatorios para beber agua, para levantarse, objetivos diarios de pasos, workouts o similar.
+Todo ello aplicado baja una capa de gamificación en la que la empresa podría premiar estos buenos hábitos. 
+
+Como **contra**, ya existen muchas alternativas en el mercado, es decir  todos podríamos estar ya usando una aplicación de este estilo ya sea mediante el movil el smart watch o los ya tan de moda Band Fit o Activity Tracker .
+Como **pro**, aunque la competencia sea desproporcionada a veces el detalle de un uso empresarial, ayuda a adoptar este tipo de aplicaciones ya sea como iniciativa personal, grupal ( proyecto, empresa) o debido meramente a una moda social en un ámbito como es el laboral.
+
+Caso de uso ‘externo’ : 
+**Funcionalidad app banca BBVA**
+Bajo un marco de gamificación como un sistema de descuentos podría ser interesante una funcionalidad que premie un estilo de vida saludable
+
+Caso de uso **Healthycities**  
+[https://reto.healthycities.es/bbva/](https://reto.healthycities.es/bbva/) 
+Se trata de un ejemplo de caso de uso real y actual promovido en el grupo BBVA  en el que participan muchas grandes empresas a parte del banco.
+A través de distintas apps y apoyándoselo en Google Fit y Health realizan un seguimiento del ejercicio físico del empleado , su objetivo principal **reducir el sedentarismo** .
 
 #### Costes
 > Aquí se deben describir los costes del supuesto caso de uso. Pueden ser aproximados, pero en líneas generales deben dar una idea de las posibilidades de la tecnología desde el punto de vista económico.  
