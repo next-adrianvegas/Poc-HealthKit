@@ -79,12 +79,23 @@ Se ha comparado con el framework  Google Fit, su principal competidor.
 Proyecto HealthKitQuickStart : 
 [Repositorio](https://github.com/next-adrianvegas/Poc-HealthKit/tree/master/code_examples/HealthKitQuickStart)
 
-En este proyecto propuesto en la web raywenderlich.com se ha tomado un proyecto creado con distintos  ‘TODO’ repartidos por el código, donde se han resuelto las siguientes funcionalidades del framework  :
+En este tutorial en la web raywenderlich.com se ha tomado un proyecto creado con distintos  ‘TODO’ repartidos por el código, donde se han resuelto las siguientes funcionalidades del framework  :
 
 * Petición de permisos al usuario
 * Leer información del usuario desde la App _Salud_ 
 * Persistir información desde HealthKit
 * Realizar una media de datos dado un período de tiempo para su visualización en la App  _Salud_ 
+
+Proyecto HealthKitWorkoutApp :
+ [Repositorio](https://github.com/next-adrianvegas/Poc-HealthKit/tree/master/code_examples/HealthKitWorkoutApp)
+
+En este proyecto se hace uso de las siguientes funcionalidades de HealthKit : 
+
+* Petición de permisos al usuario
+* Lectura /  Escritura datos en health
+* Manejo de distintas unidades en función del tipo de ejercicio
+* Manejo de datos en UI 
+* Uso del framework en una app para Apple Watch 
 
 ## Código generado
 > En esta sección deberán incluirse todos los links al código generado de la PoC.  
@@ -100,7 +111,8 @@ En esta PoC se han dedicado  unas 15 horas.
 ## Discusión
 > En esta sección se comentan los resultados uno a uno, se discuten las comparativas. Es aquí donde debe ir TODO juicio de valor de quien lo escribe, opiniones, etc. En esta sección se deberá revisar el triángulo: tiempo-alcance-incertidumbre con el objetivo de resolver las conclusiones de la última sección.  
 
-
+Como resultado de la PoC puedo decir que es un framework bastante completo en su ámbito que además sigue presentando mejoras año tras año y actualizándose acorde al crecimiento del lenguaje Swift y el desarrollo mobile en general.
+Realmente se trata de un framework por definición sencillo, aunque a veces en su desarrollo se complique en el manejo de muchos tipos de unidades, ofrece las herramientas necesarias para crear aplicaciones o funcionalidades y sobretodo para compartir datos entre ellas de forma que estos datos sean de interés para el usuario. 
 
 ### Limitaciones
 > En esta sección se describen las limitaciones de la PoC:* Cosas que no se han podido probar (por qué no se ha probado, el alcance de tu trabajo y de tus conclusiones)* Evaluaciones que no se han realizado y que molaría hacer (futuras PoCs?)  
