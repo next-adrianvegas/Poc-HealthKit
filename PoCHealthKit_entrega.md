@@ -141,9 +141,6 @@ Caso de uso **Healthycities**
 Se trata de un ejemplo de caso de uso real y actual promovido en el grupo BBVA  en el que participan muchas grandes empresas a parte del banco.
 A través de distintas apps y apoyándoselo en Google Fit y Health realizan un seguimiento del ejercicio físico del empleado , su objetivo principal **reducir el sedentarismo** .
 
-#### Costes
-> Aquí se deben describir los costes del supuesto caso de uso. Pueden ser aproximados, pero en líneas generales deben dar una idea de las posibilidades de la tecnología desde el punto de vista económico.  
-
 
 ## Conclusiones
 > En esta sección deben estar todas las conclusiones del trabajo. **Cuidado con realizar especulaciones**, es importante que sean conclusiones que deriven directamente del trabajo realizado y de la tecnología: pros y contras así como limitaciones de implantación. Es importante que en las conclusiones aparezcan ventajas y desventajas de la tecnología como resultado de la PoC  
